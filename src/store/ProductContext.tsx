@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, ReactNode, useContext, useState} from "react";
 
 interface IProductContext {
   size: string,
@@ -6,10 +6,15 @@ interface IProductContext {
   setColor: (value: (((prevState: string) => string) | string)) => void,
   setSize: (value: (((prevState: string) => string) | string)) => void,
 }
+interface ProductProviderProps {
+  children: ReactNode;
+}
+
 
 const ProductContext = createContext<IProductContext>({} as IProductContext);
 
-export const ProductProvider = ({children}) => {
+
+export const ProductProvider = ({children} : ProductProviderProps) => {
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
 

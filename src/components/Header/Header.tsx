@@ -1,4 +1,4 @@
-import {Box, Flex, Heading, Separator, Text} from "@radix-ui/themes";
+import {Box, Flex, Heading, Separator} from "@radix-ui/themes";
 import Search from "./Search.tsx";
 import Bucket from "./Bucket.tsx";
 import Menu from "./Menu.tsx";

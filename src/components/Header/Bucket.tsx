@@ -1,5 +1,5 @@
 import {Avatar, Box, Flex, Text} from "@radix-ui/themes";
-import {BackpackIcon, HeartIcon, PersonIcon} from "@radix-ui/react-icons";
+import {BackpackIcon, HeartIcon} from "@radix-ui/react-icons";
 
 
 const Bucket = () => {

@@ -6,7 +6,7 @@ const SizeSelector = () => {
   const sizes = ["40.5", "41", "42", "43", "43.5", "44", "44.5", "45", "46" ]
   const { size, setSize } = useProduct();
 
-  const handleSizeChange = (value) => {
+  const handleSizeChange = (value: string) => {
     setSize(value);
   };
 

@@ -4,10 +4,11 @@ import {useProduct} from "../../../store/ProductContext.tsx";
 import {useEffect} from "react";
 
 const ColorsSelector = () => {
-  const colors = Object.keys(nike.colors);
+  const colors = Object.keys(nike.colors) as Array<keyof typeof nike.colors>;
+
   const { color, setColor } = useProduct();
 
-  const handleColorChange = (value) => {
+  const handleColorChange = (value: string) => {
     setColor(value);
   };
 

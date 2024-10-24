@@ -10,17 +10,17 @@ import {useEffect, useState} from "react";
 
 const ProductInfo = () => {
   const {color} = useProduct();
-  const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState<number | string>(0);
   const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
-    if (color && nike.colors[color]) {
-      const currentDiscount = nike.colors[color].discount || 0;
+    if (color && (color in nike.colors)) {
+      const currentDiscount = nike.colors[color as keyof typeof nike.colors].discount || 0;
       setDiscount(currentDiscount);
     }
   }, [color]);
 
-  const priceWithDiscount = discount ? (nike.price * (Number(discount) / 100)) : null;
+  const priceWithDiscount = discount ? (Number(nike.price) * (Number(discount) / 100)) : null;
 
   return (
     <Flex direction="column" gap='20px' pl="50px">
@@ -57,7 +57,7 @@ const ProductInfo = () => {
         <SizeSelector/>
         <Flex justify='between' align='center' mt='50px' width="100%">
           <Button size='4' style={{width: "80%", color: "white", cursor: 'pointer'}}>Add to cart</Button>
-          <IconButton size='4' color='grey' style={{cursor: 'pointer'}}>
+          <IconButton size='4' color='gray' style={{cursor: 'pointer'}}>
             <HeartIcon width="18" height="18" color='white'/>
           </IconButton>
         </Flex>

@@ -6,8 +6,8 @@ import {Flex} from "@radix-ui/themes";
 
 const ProductSlider = () => {
   const {color} = useProduct();
-  const [currentImage, setCurrentImage] = useState<string>("white");
-  const images = nike.colors[color]?.images || [];
+  const [currentImage, setCurrentImage] = useState<string>("");
+  const images = nike.colors[color as keyof typeof nike.colors]?.images || [];
 
   useEffect(() => {
     setCurrentImage(images[0])
@@ -15,8 +15,8 @@ const ProductSlider = () => {
 
   return (
     <Flex width="100%" gap="20px" position="sticky" top="100px" maxHeight="700px">
-      <Flex gap="10px" marginTop="10px" direction='column'>
-        {images.map((image, index) => (
+      <Flex gap="10px" mt="10px" direction='column'>
+        {images.map((image: string, index: number) => (
           <img
             key={index}
             src={image}
